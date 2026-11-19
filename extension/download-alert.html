@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ClickWarden — download check</title>
+  <link rel="stylesheet" href="ui.css">
+  <style>
+    body { padding: 0; }
+    .card { border-radius: 0; border: none; }
+    dl { display: grid; grid-template-columns: 90px 1fr; gap: 4px 10px; margin: 8px 0; font-size: 13px; }
+    dt { color: var(--muted); }
+    dd { margin: 0; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <div id="banner" class="banner high">
+    <h1 id="title">Checking download…</h1>
+    <div id="subtitle"></div>
+  </div>
+  <div class="card">
+    <dl>
+      <dt>File</dt><dd id="name"></dd>
+      <dt>From</dt><dd id="src" class="mono"></dd>
+      <dt>On page</dt><dd id="ref" class="mono"></dd>
+      <dt>Status</dt><dd id="state"></dd>
+    </dl>
+
+    <h2>Download behaviour</h2>
+    <ul class="reasons" id="reasons"></ul>
+
+    <h2>Known-malware check <span id="hashchip" class="chip pending">pending</span></h2>
+    <ul class="reasons" id="hash"></ul>
+    <p class="small muted mono" id="sha"></p>
+
+    <div class="row" id="actions" style="margin-top:14px"></div>
+  </div>
+  <script src="download-alert.js"></script>
+</body>
+</html>

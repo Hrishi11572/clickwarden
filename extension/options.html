@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ClickWarden settings</title>
+  <link rel="stylesheet" href="ui.css">
+  <style> main { max-width: 680px; margin: 32px auto; padding: 0 16px 60px; } .card { margin-top: 12px; } .hint { font-size: 12px; color: var(--muted); margin-top: 3px; } .res { font-size: 12px; margin-top: 4px; } </style>
+</head>
+<body>
+<main>
+  <h1>🛡️ ClickWarden settings</h1>
+  <p class="muted">All three keys are free. ClickWarden works without them, but then it can only use its offline checks.</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">Threat-intelligence API keys</h2>
+
+    <label for="gsbKey">Google Safe Browsing API key</label>
+    <input type="password" id="gsbKey" autocomplete="off">
+    <div class="hint">Phishing &amp; malware sites. Google Cloud Console → enable "Safe Browsing API" → Credentials → API key.</div>
+    <div class="res" id="r-gsb"></div>
+
+    <label for="abuseKey">abuse.ch Auth-Key (URLhaus + MalwareBazaar)</label>
+    <input type="password" id="abuseKey" autocomplete="off">
+    <div class="hint">Malware download links and known malware files. Sign up at <span class="mono">auth.abuse.ch</span>; one key covers both.</div>
+    <div class="res" id="r-abuse"></div>
+
+    <label for="vtKey">VirusTotal API key</label>
+    <input type="password" id="vtKey" autocomplete="off">
+    <div class="hint">70+ antivirus engines. Free account at virustotal.com → profile → API key. Free tier: 4 lookups/minute, 500/day, personal use only.</div>
+    <div class="res" id="r-vt"></div>
+
+    <div class="row" style="margin-top:14px"><button id="test">Test keys</button></div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0">Behaviour</h2>
+    <label class="check"><input type="checkbox" id="interceptClicks"><span>Hold link clicks to other sites until they're checked<div class="hint">Usually adds no delay because links are pre-checked when you hover over them.</div></span></label>
+    <label class="check"><input type="checkbox" id="blockSuspicious"><span>Also block pages that only look suspicious (not on any blocklist)<div class="hint">Off = suspicious links still get a warning when clicked; pages on a blocklist are always blocked.</div></span></label>
+    <label class="check"><input type="checkbox" id="warnHttp"><span>Warn me before opening unencrypted (http) sites<div class="hint">If the site also has a secure (https) version, ClickWarden switches to it automatically. Your router and other devices on your own network are skipped.</div></span></label>
+    <label class="check"><input type="checkbox" id="vtOnNavigation"><span>Ask VirusTotal about every page I open<div class="hint">Not recommended on the free tier — you'll hit 4/minute quickly. VirusTotal is always used for downloads and manual checks.</div></span></label>
+    <label class="check"><input type="checkbox" id="pauseRiskyDownloads"><span>Pause high-risk downloads and ask me</span></label>
+    <label class="check"><input type="checkbox" id="hashDownloads"><span>Check finished downloads against known-malware databases</span></label>
+    <label for="maxHashMB">Largest file to check in the browser (MB)</label>
+    <input type="number" id="maxHashMB" min="1" max="1024" style="max-width:120px">
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0">Trusted sites</h2>
+    <p class="hint">One domain per line. Subdomains are included (e.g. <span class="mono">iitkgp.ac.in</span> also trusts <span class="mono">erp.iitkgp.ac.in</span>).</p>
+    <textarea id="allowlist" rows="5" class="mono"></textarea>
+  </div>
+
+  <div class="row" style="margin-top:16px"><span class="spacer"></span><span id="saved" class="small muted"></span><button class="primary" id="save">Save</button></div>
+</main>
+<script src="options.js"></script>
+</body>
+</html>

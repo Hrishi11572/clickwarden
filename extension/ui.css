@@ -1,0 +1,43 @@
+:root {
+  --bg: #f7f7f8; --card: #fff; --text: #1f1f1f; --muted: #5f6368; --line: #e3e3e6;
+  --blue: #1a73e8; --red: #d93025; --amber: #e37400; --green: #188038;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #18181b; --card: #232327; --text: #ececf1; --muted: #a1a1aa; --line: #34343a; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+h1 { font-size: 20px; margin: 0 0 4px; }
+h2 { font-size: 15px; margin: 22px 0 8px; }
+p { margin: 6px 0; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; word-break: break-all; }
+.urlbox { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+ul.reasons { margin: 6px 0; padding-left: 20px; }
+ul.reasons li { margin: 3px 0; }
+button { font: inherit; border-radius: 8px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--text); }
+button.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+button.danger { background: var(--red); border-color: var(--red); color: #fff; }
+button.link { background: none; border: none; color: var(--red); text-decoration: underline; padding: 8px 4px; }
+button:disabled { opacity: .5; cursor: default; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.spacer { flex: 1; }
+.chip { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; text-transform: uppercase; letter-spacing: .03em; }
+.chip.malicious, .chip.high { background: #fce8e6; color: var(--red); }
+.chip.suspicious, .chip.medium { background: #fef3e0; color: var(--amber); }
+.chip.safe, .chip.clean, .chip.low { background: #e6f4ea; color: var(--green); }
+.chip.unknown, .chip.skipped, .chip.pending, .chip.running, .chip.error, .chip.off { background: #ececf0; color: #5f6368; }
+.banner { color: #fff; padding: 18px 22px; border-radius: 12px 12px 0 0; }
+.banner.malicious, .banner.high { background: var(--red); }
+.banner.suspicious, .banner.medium { background: var(--amber); }
+.banner.low, .banner.safe { background: var(--green); }
+.banner h1 { color: #fff; }
+input[type=text], input[type=password], input[type=number], textarea {
+  width: 100%; font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--text);
+}
+label { display: block; margin: 12px 0 4px; font-weight: 600; }
+label.check { font-weight: normal; display: flex; gap: 8px; align-items: flex-start; margin: 8px 0; }
+label.check input { margin-top: 3px; }
+a { color: var(--blue); }

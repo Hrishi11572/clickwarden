@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ClickWarden — site blocked</title>
+  <link rel="stylesheet" href="ui.css">
+  <style>
+    main { max-width: 620px; margin: 8vh auto; padding: 0 16px; }
+    .card { border-radius: 0 0 12px 12px; border-top: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="banner" class="banner malicious">
+      <h1 id="title">⛔ ClickWarden stopped this page from opening</h1>
+      <div id="subtitle">This site is known to be dangerous.</div>
+    </div>
+    <div class="card">
+      <div class="urlbox mono" id="url"></div>
+      <h2 id="why">Why it was blocked</h2>
+      <ul class="reasons" id="reasons"><li class="muted">Loading…</li></ul>
+      <p class="small muted" id="checked"></p>
+      <div class="row" style="margin-top:16px">
+        <button class="link" id="proceed">Open anyway (not recommended)</button>
+        <span class="spacer"></span>
+        <button class="primary" id="back">Take me to safety</button>
+      </div>
+    </div>
+  </main>
+  <script src="warning.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="ui.css">
+  <style>
+    body { width: 360px; padding: 14px; }
+    .section { margin-top: 14px; }
+    .dl { display: flex; gap: 8px; align-items: center; padding: 7px 0; border-top: 1px solid var(--line); cursor: pointer; }
+    .dl .n { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    #warnkeys { display: none; background: #fef3e0; color: #8a4b00; border-radius: 8px; padding: 8px 10px; font-size: 12px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="row"><strong style="font-size:16px">🛡️ ClickWarden</strong><span class="spacer"></span><a href="#" id="opts" class="small">Settings</a></div>
+  <div id="warnkeys">No API keys yet — only offline checks are running. <a href="#" id="opts2">Add free keys</a> for blocklist and malware lookups.</div>
+
+  <div class="section card">
+    <div class="small muted">This page</div>
+    <div class="row"><span id="pagechip" class="chip pending">…</span><span id="pagehost" class="mono"></span></div>
+    <ul class="reasons small" id="pagereasons"></ul>
+  </div>
+
+  <div class="section">
+    <div class="small muted" style="margin-bottom:4px">Check a link before opening it (uses all sources incl. VirusTotal)</div>
+    <div class="row"><input type="text" id="u" placeholder="Paste a link…" style="flex:1"><button class="primary" id="go">Check</button></div>
+    <div id="result" class="small" style="margin-top:6px"></div>
+  </div>
+
+  <div class="section">
+    <div class="small muted">Recent downloads</div>
+    <div id="dls"><div class="small muted" style="padding:6px 0">None yet.</div></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

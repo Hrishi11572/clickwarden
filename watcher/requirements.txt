@@ -1,0 +1,3 @@
+# All optional — the watcher runs on the Python standard library alone.
+watchdog>=4.0   # instant file detection instead of polling
+plyer>=2.1      # nicer cross-platform notifications
